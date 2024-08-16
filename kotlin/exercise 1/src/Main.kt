@@ -12,24 +12,29 @@ fun main() {
 }
 
 fun isPerfect(num: Int): Boolean{
-    var res = 0
-    val divisors = ArrayList<Int>()
-    for(n in 1..num){
-        if(num % n == 0 && n < num){
-            divisors.add(n)
+    if(num != 0){
+        var res = 0
+        val divisors = ArrayList<Int>()
+        for(n in 1..num){
+            if(num % n == 0 && n < num){
+                divisors.add(n)
+            }
         }
-    }
 
-    divisors.forEach {
-        println(it)
-        res += it
-    }
+        divisors.forEach {
+            println(it)
+            res += it
+        }
 
-    return if(res == num){
-        println("$num is perfect?")
-        true
+        return if(res == num){
+            println("$num is perfect?")
+            true
+        }else{
+            println("$num is perfect?")
+            false
+        }
     }else{
-        println("$num is perfect?")
-        false
+        throw IllegalArgumentException("Zero can't be divided. Division by zero is impossible.")
     }
+
 }
